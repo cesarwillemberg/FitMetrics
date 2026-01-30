@@ -6,7 +6,7 @@ export function Header() {
       <div className="section-shell flex items-center justify-between py-3">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold text-primary">
           <img
-            src="/src/assets/icon/logo.png"
+            src={new URL('../assets/icon/logo.png', import.meta.url).href}
             alt="FitMetrics Logo"
             className="h-9 w-auto object-contain"
           />
