@@ -1,0 +1,61 @@
+@use './tokens' as *;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border;
+}
+
+body {
+  @apply bg-gray-50 text-gray-700 antialiased;
+  font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-display text-gray-900;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6));
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.2), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(245, 158, 11, 0.25), transparent 30%),
+    linear-gradient(135deg, #0f766e 0%, #14b8a6 100%);
+}
+
+.card {
+  @apply rounded-xl bg-white shadow-soft;
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.section-shell {
+  @apply w-full max-w-6xl px-4 sm:px-6 lg:px-8 mx-auto;
+}
+
+.pill {
+  @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold;
+}
+
+.stat-label {
+  @apply text-sm text-gray-500 font-semibold uppercase tracking-wide;
+}

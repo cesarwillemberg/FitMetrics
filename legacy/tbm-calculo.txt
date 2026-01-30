@@ -1,0 +1,69 @@
+1g de proteína -> 4kcal
+1g de carboidrato -> 4kcal
+1g de gordura -> 9kcal
+1g de álcool -> 7kcal
+
+
+ex pessoa de 80kg
+gordura(utilizando a média): 80kg x 0.8g/kg = 64kg
+
+total de calorias - gordura(kcal) - Proteina(Kcal) /4
+
+
+recomendações
+
+proteína ----- 2 - 3.1g/kg
+gordura ---- 0.6 - 1g/kg
+carboidrato --- resto das calorias / 4
+fibras ---- 10-15 a cada 1000 calorias
+
+
+Calculo de TBM usando a equação de Harris-Beneidct
+
+ganhar massa:
++ 200 kcal para intermediário
++ 400 kcal para iniciantes
+
+para perder gordura - 20% do tbm com a multiplicação de esforço 
+
+formula para homem
+masculino: 10 x peso (kg) + 6.25 x altura (cm) - 5 x idade (anos) + 5 
+
+Ex:
+ ((10 x 103) + (6.25 x 180) - (5 x 22) + 5) = 2050 x 1,375 = 2818.75 kcal 
+
+ Perca de peso - 20%:
+ 2819 - 563.8 = 2255.2 = 2255 kcal
+
+ 
+Formula para mulheres:
+feminino: 10 x peso (kg) + 6.25 x altura (cm) - 5 x idade (anos) - 161
+
+
+Ex:
+
+((10 x 57) + (6.25 x 163) - (5 x 21) - 161) = 1322.75 = 1323 x 1,2 = 1587,6 = 1588
+Gano de massa + 200 a 400 kcal:
+ 1588 + 400 = 1988 kcal
+
+Multiplicadores de esforço:
+sedentário 1,2
+exercício leve (1-3 por semana) 1,375
+exercício moderado (3-5 por semana) 1,55
+exercício intenso (6-7 dias por semana) 1,725
+exercício muito intenso (Atleta, 2x por dia) 1,9
+
+
+
+Métricas:
+proteína: 103 x 2.5 = 257,5 = 258 x 4 = 1032
+gordura: 103 x 0.6 = 61,8 = 62 x 9 = 558 
+2255 - 1032 - 558 =  665  
+carboidrato: 665 / 4 = 166,25 = 166
+
+Calorias por dia: 2255kcal
+proteína: 258g,
+gordura: 62g,
+carboidrato: 166g,
+fibra: 25g
+
