@@ -42,7 +42,7 @@ export function RadioGroup<T extends string>({
               'w-full sm:w-auto rounded-2xl border-2 px-4 py-3 sm:px-5 sm:py-3.5 text-left text-sm font-semibold leading-snug transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-primary/50',
               checked
                 ? 'border-primary bg-primary/10 text-primary shadow-soft'
-                : 'border-gray-200 bg-white text-gray-800 hover:border-primary/30 hover:shadow-soft',
+                : 'border-gray-200 bg-white text-gray-800 hover:border-primary/30 hover:shadow-soft dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200',
             )}
             aria-pressed={checked}
             role="radio"

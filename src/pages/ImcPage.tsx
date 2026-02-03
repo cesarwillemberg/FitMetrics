@@ -38,7 +38,7 @@ export function ImcPage() {
                             {hook.result ? (
                                 <ImcResults result={hook.result} />
                             ) : (
-                                <div className="flex h-full min-h-[300px] items-center justify-center rounded-xl border-2 border-dashed border-gray-200 p-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-600">
+                                <div className="flex h-full min-h-[300px] items-center justify-center rounded-xl border-2 border-dashed border-gray-200 p-8 text-center text-gray-400 dark:border-gray-800 dark:text-gray-500">
                                     <p>Preencha os dados ao lado para ver seu resultado aqui.</p>
                                 </div>
                             )}

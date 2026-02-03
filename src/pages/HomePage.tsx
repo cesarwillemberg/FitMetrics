@@ -18,7 +18,7 @@ export function HomePage() {
       <main className="section-shell py-12 space-y-6">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <Card className="shadow-card" title="Calculadora de TBM + Macros">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
               TBM, TDEE, proteína, gordura, carboidratos e fibras. Ajustes por objetivo e macros customizados.
             </p>
             <Link to="/tbm">
@@ -29,7 +29,7 @@ export function HomePage() {
           </Card>
 
           <Card className="shadow-card" title="Calculadora de IMC">
-            <p className="mb-4 text-sm text-gray-700">
+            <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
               Índice de Massa Corporal. Avaliação rápida de peso para altura com classificação da OMS.
             </p>
             <Link to="/imc">
@@ -40,7 +40,7 @@ export function HomePage() {
           </Card>
 
           <Card className="shadow-card" title="Calculadora de Peso Ideal">
-            <p className="mb-4 text-sm text-gray-700">
+            <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
               Estimativa baseada na fórmula de Devine (padrão médico) considerando altura e gênero.
             </p>
             <Link to="/peso-ideal">
@@ -51,7 +51,7 @@ export function HomePage() {
           </Card>
 
           <Card className="shadow-card" title="Calculadora de Água Diária">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
               Meta de hidratação com base na OMS, faixa etária e opção personalizada (30–40 ml/kg).
             </p>
             <Link to="/agua">
@@ -62,7 +62,7 @@ export function HomePage() {
           </Card>
 
           <Card className="shadow-card" title="Calculadora de Creatina">
-            <p className="text-sm text-gray-700 mb-4">
+            <p className="text-sm text-gray-700 dark:text-gray-300 mb-4">
               Dose diária por peso (0,03 g/kg), faixa de 3–5 g e opção de saturação guiada.
             </p>
             <Link to="/creatina">

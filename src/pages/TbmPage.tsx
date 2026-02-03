@@ -47,12 +47,9 @@ export function TbmPage() {
       <main className="space-y-10 pb-16">
         <section className="section-shell pt-6">
           <SectionTitle
-            title="Calculadora de TBM + Macros"
-            subtitle="Mobile first, com componentes reutilizáveis e pronta para ganhar novos cálculos no futuro."
+            title="Calculadora de TBM e Macros"
+            subtitle=""
           />
-          <div className="mb-4 text-xs text-gray-600">
-            Multiplicadores disponíveis: {ACTIVITY_LEVELS.map((a) => `${a.label} (${a.multiplier})`).join(' · ')}
-          </div>
         </section>
 
         <CalculatorForm
