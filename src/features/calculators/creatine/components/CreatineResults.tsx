@@ -2,13 +2,21 @@ import Button from '@/components/Button';
 import Card from '@/components/Card';
 import StatCard from '@/components/StatCard';
 import type { CreatineResult } from '../types';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
+import { PrintableReport } from '@/components/PrintableReport';
 
 type Props = {
   result: CreatineResult | null;
 };
 
 export function CreatineResults({ result }: Props) {
+  const printRef = useRef<HTMLDivElement>(null);
+  const handlePrint = useReactToPrint({
+    contentRef: printRef,
+    documentTitle: 'FitMetrics-Meta-Creatina',
+  });
+
   const shareText = useMemo(() => {
     if (!result) return '';
     return [
@@ -36,12 +44,20 @@ export function CreatineResults({ result }: Props) {
       </div>
       <Card title="Compartilhar">
         <div className="flex flex-wrap gap-3">
+          <Button variant="secondary" onClick={() => handlePrint()}>
+            <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+            Exportar PDF
+          </Button>
           <Button variant="secondary" onClick={copy}>
             <span className="fa fa-copy" aria-hidden />
             Copiar
           </Button>
         </div>
       </Card>
+
+      <PrintableReport ref={printRef} type="creatine" data={result} />
     </section>
   );
 }

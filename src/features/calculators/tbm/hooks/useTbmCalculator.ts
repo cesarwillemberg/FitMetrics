@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { historyService } from '@/services/history';
 import { ACTIVITY_LEVELS, DEFAULT_MACROS } from '../constants';
 import type { CalculatorFormState, CalculatorResult } from '../types';
 import { compute } from '../utils/formulas';
@@ -30,8 +31,12 @@ export const useTbmCalculator = () => {
   const handleCalculate = () => {
     try {
       setError(null);
+
+
+
       const computed = compute(form);
       setResult(computed);
+      historyService.add({ type: 'tbm', details: form, result: computed });
       return true;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erro ao calcular. Tente novamente.');

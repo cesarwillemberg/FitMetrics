@@ -28,6 +28,28 @@ export function HomePage() {
             </Link>
           </Card>
 
+          <Card className="shadow-card" title="Calculadora de IMC">
+            <p className="mb-4 text-sm text-gray-700">
+              Índice de Massa Corporal. Avaliação rápida de peso para altura com classificação da OMS.
+            </p>
+            <Link to="/imc">
+              <Button fullWidth className="bg-[#3B0F76] text-white hover:bg-[#2a0b55]">
+                Ir para IMC →
+              </Button>
+            </Link>
+          </Card>
+
+          <Card className="shadow-card" title="Calculadora de Peso Ideal">
+            <p className="mb-4 text-sm text-gray-700">
+              Estimativa baseada na fórmula de Devine (padrão médico) considerando altura e gênero.
+            </p>
+            <Link to="/peso-ideal">
+              <Button fullWidth className="bg-[#760F17] text-white hover:bg-[#5a0b12]">
+                Ir para Peso Ideal →
+              </Button>
+            </Link>
+          </Card>
+
           <Card className="shadow-card" title="Calculadora de Água Diária">
             <p className="text-sm text-gray-700 mb-4">
               Meta de hidratação com base na OMS, faixa etária e opção personalizada (30–40 ml/kg).

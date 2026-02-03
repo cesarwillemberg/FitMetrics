@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero';
+import { HistoryList } from '@/components/HistoryList';
 import SectionTitle from '@/components/SectionTitle';
 import CalculatorForm from '@/features/calculators/tbm/components/CalculatorForm';
 import Examples from '@/features/calculators/tbm/components/Examples';
@@ -69,6 +70,8 @@ export function TbmPage() {
         <Examples onSelect={loadExample} />
 
         <Methodology />
+
+        <HistoryList type="tbm" refreshTrigger={result ? Date.now() : 0} />
 
         <FAQ />
       </main>
