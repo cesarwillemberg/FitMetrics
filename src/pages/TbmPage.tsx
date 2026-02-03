@@ -6,7 +6,6 @@ import Examples from '@/features/calculators/tbm/components/Examples';
 import FAQ from '@/features/calculators/tbm/components/FAQ';
 import Methodology from '@/features/calculators/tbm/components/Methodology';
 import ResultsPanel from '@/features/calculators/tbm/components/ResultsPanel';
-import { ACTIVITY_LEVELS } from '@/features/calculators/tbm/constants';
 import { useTbmCalculator } from '@/features/calculators/tbm/hooks/useTbmCalculator';
 
 export function TbmPage() {

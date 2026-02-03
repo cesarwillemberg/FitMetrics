@@ -50,7 +50,7 @@ export function IdealWeightPage() {
 
                     <section className="mt-12 border-t pt-8 dark:border-gray-800">
                         <h2 className="mb-6 text-xl font-bold text-gray-900 dark:text-white">Últimos cálculos</h2>
-                        <HistoryList type="ideal-weight" refreshTrigger={result} />
+                        <HistoryList type="ideal-weight" refreshTrigger={result ? Date.now() : 0} />
                     </section>
                 </section>
             </main>

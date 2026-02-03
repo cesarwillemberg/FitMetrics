@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 type Props = {
     type?: 'tbm' | 'imc' | 'water' | 'creatine' | 'ideal-weight';
-    refreshTrigger?: any;
+    refreshTrigger?: number;
 };
 
 export function HistoryList({ type, refreshTrigger }: Props) {
