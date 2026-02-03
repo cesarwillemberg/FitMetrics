@@ -33,7 +33,7 @@ export function HomePage() {
               Índice de Massa Corporal. Avaliação rápida de peso para altura com classificação da OMS.
             </p>
             <Link to="/imc">
-              <Button fullWidth className="bg-[#3B0F76] text-white hover:bg-[#2a0b55]">
+              <Button fullWidth className="!bg-[#3B0F76] text-white hover:!bg-[#2a0b55]">
                 Ir para IMC →
               </Button>
             </Link>
@@ -44,7 +44,7 @@ export function HomePage() {
               Estimativa baseada na fórmula de Devine (padrão médico) considerando altura e gênero.
             </p>
             <Link to="/peso-ideal">
-              <Button fullWidth className="bg-[#760F17] text-white hover:bg-[#5a0b12]">
+              <Button fullWidth className="!bg-[#760F17] text-white hover:!bg-[#5a0b12]">
                 Ir para Peso Ideal →
               </Button>
             </Link>
