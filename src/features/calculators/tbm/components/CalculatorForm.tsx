@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/Button';
 import { Card } from '@/components/Card';
 import { Field } from '@/components/Field';
@@ -7,6 +8,50 @@ import { Select } from '@/components/Select';
 import Accordion from '@/components/Accordion';
 import { ACTIVITY_LEVELS, DEFAULT_MACROS, LIMITS } from '../constants';
 import type { CalculatorFormState } from '../types';
+
+type NumberInputProps = Omit<React.ComponentProps<typeof Input>, 'value' | 'onChange'> & {
+  value: number | '';
+  onChange: (value: number | '') => void;
+};
+
+function NumberInput({ value, onChange, ...props }: NumberInputProps) {
+  const [localValue, setLocalValue] = useState(value === '' ? '' : String(value));
+
+  useEffect(() => {
+    // Sync from parent only if there's a meaningful difference
+    // logic: if parent value matches what we have parsed locally, don't touch local string
+    // This preserves "0." or "0,0" being displayed while parent sees 0
+    const parsedLocal = localValue.replace(',', '.');
+    const numericLocal = parsedLocal === '' || parsedLocal === '.' ? '' : Number(parsedLocal);
+
+    if (value !== numericLocal) {
+      setLocalValue(value === '' ? '' : String(value));
+    }
+  }, [value]); // Removing localValue from deps to avoid loop and only sync on parent change
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+
+    // Allow digits, one comma OR one dot. Regex: ^[0-9]*[.,]?[0-9]*$
+    if (!/^[0-9]*[.,]?[0-9]*$/.test(raw)) {
+      return; // Reject invalid chars
+    }
+
+    setLocalValue(raw);
+
+    const normalized = raw.replace(',', '.');
+    if (normalized === '' || normalized === '.') {
+      onChange('');
+    } else {
+      const parsed = Number(normalized);
+      if (!isNaN(parsed)) {
+        onChange(parsed);
+      }
+    }
+  };
+
+  return <Input {...props} value={localValue} onChange={handleChange} />;
+}
 
 type Props = {
   form: CalculatorFormState;
@@ -30,12 +75,6 @@ const objectiveOptions = [
 ];
 
 export function CalculatorForm({ form, error, onSubmit, onReset, onChange, onMacroChange, onExample }: Props) {
-  const handleNumberChange = (key: keyof CalculatorFormState) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const raw = e.target.value;
-    const num = raw === '' ? '' : Number(raw);
-    onChange(key as any, num as any);
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit();
@@ -62,37 +101,34 @@ export function CalculatorForm({ form, error, onSubmit, onReset, onChange, onMac
             </Field>
 
             <Field label="Peso" hint={`${LIMITS.weight.min}-${LIMITS.weight.max} kg`} htmlFor="weight">
-              <Input
+              <NumberInput
                 id="weight"
                 inputMode="decimal"
-                pattern="[0-9]*"
                 placeholder="Ex: 75"
                 value={form.weight}
-                onChange={handleNumberChange('weight')}
+                onChange={(v) => onChange('weight', v)}
                 rightSlot="kg"
               />
             </Field>
 
             <Field label="Altura" hint={`${LIMITS.height.min}-${LIMITS.height.max} cm`} htmlFor="height">
-              <Input
+              <NumberInput
                 id="height"
                 inputMode="decimal"
-                pattern="[0-9]*"
                 placeholder="Ex: 175"
                 value={form.height}
-                onChange={handleNumberChange('height')}
+                onChange={(v) => onChange('height', v)}
                 rightSlot="cm"
               />
             </Field>
 
             <Field label="Idade" hint={`${LIMITS.age.min}-${LIMITS.age.max} anos`} htmlFor="age">
-              <Input
+              <NumberInput
                 id="age"
                 inputMode="numeric"
-                pattern="[0-9]*"
                 placeholder="Ex: 28"
                 value={form.age}
-                onChange={handleNumberChange('age')}
+                onChange={(v) => onChange('age', v)}
                 rightSlot="anos"
               />
             </Field>
@@ -139,24 +175,24 @@ export function CalculatorForm({ form, error, onSubmit, onReset, onChange, onMac
           <Accordion title="Ajustar macros" badge="Opcional" defaultOpen={false}>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <Field label="Proteína (g/kg)">
-                <Input
+                <NumberInput
                   inputMode="decimal"
                   value={form.macros.proteinPerKg}
-                  onChange={(e) => onMacroChange('proteinPerKg', Number(e.target.value))}
+                  onChange={(v) => onMacroChange('proteinPerKg', v === '' ? 0 : v)}
                 />
               </Field>
               <Field label="Gordura (g/kg)">
-                <Input
+                <NumberInput
                   inputMode="decimal"
                   value={form.macros.fatPerKg}
-                  onChange={(e) => onMacroChange('fatPerKg', Number(e.target.value))}
+                  onChange={(v) => onMacroChange('fatPerKg', v === '' ? 0 : v)}
                 />
               </Field>
               <Field label="Fibra (g/1000 kcal)">
-                <Input
+                <NumberInput
                   inputMode="decimal"
                   value={form.macros.fiberPerKcal}
-                  onChange={(e) => onMacroChange('fiberPerKcal', Number(e.target.value))}
+                  onChange={(v) => onMacroChange('fiberPerKcal', v === '' ? 0 : v)}
                 />
               </Field>
             </div>
